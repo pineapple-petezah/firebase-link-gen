@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firebase Link Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+    .container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    input {
+      padding: 10px;
+      width: 100%;
+      margin: 10px 0;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    p {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Firebase Link Generator</h1>
+    <label for="projectName">Enter your Firebase project ID:</label>
+    <input type="text" id="projectName" placeholder="e.g. petezahgames10">
+    <button onclick="generateLink()">Generate Link</button>
+
+    <p id="generatedLink"></p>
+  </div>
+
+  <script>
+    function generateLink() {
+      // Get user input (e.g., the project name)
+      const projectName = document.getElementById('projectName').value;
+      
+      if (projectName.trim() === '') {
+        alert('Please enter a valid project name');
+        return;
+      }
+
+      // Construct the Firebase URL
+      const firebaseLink = `https://${projectName}.web.app`;
+
+      // Display the generated link
+      document.getElementById('generatedLink').innerText = `Generated Firebase Link: ${firebaseLink}`;
+    }
+  </script>
+
+</body>
+</html>
